@@ -1,4 +1,4 @@
-# 📰 News&Stocks NLP Analysis Project based on KOSPI 200
+## 📰 News&Stocks NLP Analysis Project based on KOSPI 200
 
 **2023 데이터청년캠퍼스 서울과기대 Team8** 
 <br>
