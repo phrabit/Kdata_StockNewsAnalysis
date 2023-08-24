@@ -88,6 +88,9 @@
 
 ### Web 구현
 
-> - 구현 영상 링크
+![GIFMaker_me](https://github.com/phrabit/Kdata_StockNewsAnalysis/assets/70180003/7d0774d5-c29f-4ae2-aa5d-a90c63350dc6)
+
+
+
 
 ---
