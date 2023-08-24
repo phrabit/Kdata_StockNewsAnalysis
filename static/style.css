@@ -1,0 +1,51 @@
+style.css
+
+body {
+    background: linear-gradient(to bottom, #e0eafc, #cfd9df);
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 20px 40px;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #6b8eda;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: vertical;
+}
+
+.custom-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.custom-btn:hover {
+    background: #2980b9;
+}
+
+.fade-in-box {
+    animation: fadeIn 1s;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

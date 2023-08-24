@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% include 'index.html' %}
+{% block content %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        
+        body{
+            background: linear-gradient(to bottom, #e0eafc, #cfd9df);
+        }
+
+        #wrap{
+            width:1000px;
+            margin: 0 auto;
+            overflow : hidden;
+            padding-top : 10px;
+        }
+        div > article {
+            float : left;
+            margin-left:10px;
+            margin-bottom:10px;
+        }
+        img{display:block;}
+
+        .article {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+         }
+
+        .article p {
+        margin-top: 10px;
+        }
+
+        article img:hover {
+        transform: scale(1.2); /* 1.2배 확대 */
+        transition: transform 0.3s; 
+        }       
+
+        a:link {
+        color : black;
+        }   
+        * {
+        font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <article><a href="{{ url_for('jpg1') }}"><img src="{{ url_for('static', filename='건설.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">건설</h1></a></article>
+        <article><a href="{{ url_for('jpg2') }}"><img src="{{ url_for('static', filename='경기소비재.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">경기소비재</h1></a></article>
+        <article><a href="{{ url_for('jpg3') }}"><img src="{{ url_for('static', filename='금융.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">금융</h1></a></article>
+        <article><a href="{{ url_for('jpg4') }}"><img src="{{ url_for('static', filename='산업재.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">산업재</h1></a></article>
+        <article><a href="{{ url_for('jpg5') }}"><img src="{{ url_for('static', filename='생활소비재.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">생활소비재</h1></a></article>
+        <article><a href="{{ url_for('jpg6') }}"><img src="{{ url_for('static', filename='에너지_화학.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">에너지/화학</h1></a></article>
+        <article><a href="{{ url_for('jpg7') }}"><img src="{{ url_for('static', filename='정보기술.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">정보기술</h1></a></article>
+        <article><a href="{{ url_for('jpg8') }}"><img src="{{ url_for('static', filename='중공업.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">중공업</h1></a></article>
+        <article><a href="{{ url_for('jpg9') }}"><img src="{{ url_for('static', filename='철강_소재.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">철강/소재</h1></a></article>
+        <article><a href="{{ url_for('jpg10') }}"><img src="{{ url_for('static', filename='커뮤니케이션서비스.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">커뮤니케이션서비스</h1></a></article>
+        <article><a href="{{ url_for('jpg11') }}"><img src="{{ url_for('static', filename='헬스케어.jpg') }}" width="220px" height="220px"><h3 style="text-align: center;">헬스케어</h1></a></article>
+    </div>
+
+</body>
+</html>
+{% endblock %}

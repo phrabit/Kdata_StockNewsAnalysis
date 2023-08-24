@@ -1,0 +1,49 @@
+<html>
+{% include 'index.html'%}
+{% block content %}
+
+<link href="/static/font.css" rel="stylesheet" type="text/css"/>
+
+<style>
+    .info-box {
+        text-align: center;
+    }
+    body {
+        background-color: #dae4f0;
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* 세로 중앙 정렬 */
+        height: 90vh; 
+    }
+</style>
+
+<body class="result-page">
+    <div class="content-wrapper fade-in-box">
+        <div class="info-box">
+            <div style='font-size:30px;'>
+                해당 기사로 인해 
+                <strong>
+                {% if time == '1' %} 
+                    당일 주가
+                {% elif time == '2' %}
+                    다음날 주가
+                {% else %}
+                    휴일 다음날 주가
+                {% endif %}
+                </strong>
+                가 
+                {% if value > 0.5 %}
+                    오르거나 유지될 확률은 <br>{{ positive }}% 입니다
+                {% else %}
+                    떨어질 확률은 <br> {{ negative }}% 입니다
+                {% endif %}
+            </div>
+        </div>
+        <div class="image-box"></div>
+    </div>
+</body>
+</html>
+{% endblock %}

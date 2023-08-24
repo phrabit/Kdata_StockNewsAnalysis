@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/static/font.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON('/static/stock_category.json', function(data) {
+                var navbar = $('#navbar-content');
+                var categories = {};
+
+                data.forEach(function(stock) {
+                    if (!categories[stock.category]) {
+                        categories[stock.category] = [];
+                    }
+                    categories[stock.category].push(stock);
+                });
+
+                for (var category in categories) {
+                    var categoryDiv = $('<li class="dropdown">');
+                    categoryDiv.append('<a href="#" class="dropdown-toggle" data-toggle="dropdown">' + category + ' <span class="caret"></span></a>');
+                    var dropdownMenu = $('<ul class="dropdown-menu">');
+                    categories[category].forEach(function(stock) {
+                        dropdownMenu.append('<li><a href="/newspage/stock/' + stock.stock_id + '">' + stock.stock_name + '</a></li>');
+                    });
+                    categoryDiv.append(dropdownMenu);
+                    navbar.append(categoryDiv);
+                }
+            });
+        });
+    </script>
+</jhead>
+<body class="index-page">
+    <div style="margin:20px;">
+        <nav id="navbar-example" class="navbar navbar-default navbar-static">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">stock news</a>
+                    <a class="navbar-brand" href="/wordcloud">wordcloud</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" id="navbar-content">
+       
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

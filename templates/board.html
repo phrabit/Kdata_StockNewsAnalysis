@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "kor">
+<head>
+    <title>뉴스 목록</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+    body.board-page {
+     background-color: #dae4f0;    
+    }
+    
+    .table {
+    background-color: white;  /* 테이블의 배경색을 흰색으로 설정 */
+    }
+    </style>
+</head>
+<body class ="board-page">
+    {% include 'index.html' %}
+<table class = "table table-bordered table-hover" >
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>뉴스기사</th>
+            <th>날짜</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for index, row in data.iterrows() %}
+        <tr>
+            <td>{{ (page-1)*10 + loop.index }}</td>
+            <td><a href="/news/{{ stock_id }}/{{ (page-1)*10 + loop.index - 1 }}">{{ ' '.join(row['text'].split()[:10]) }}...</a></td>
+            <td>{{ row['date'] }}</td> 
+        </tr>
+        {% endfor %}
+    </tbody>    
+</table>
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="{{ url_for('index', stock_id=stock_id, page=page-1) }}">Previous</a>
+    {% endif %}
+    <span>Page {{ page }}</span>
+    {% if data.shape[0] >= 10 %} 
+    <a href="{{ url_for('index', stock_id=stock_id, page=page+1) }}">Next</a>
+    {% endif %}
+</div>
+</body>
+
+</html>

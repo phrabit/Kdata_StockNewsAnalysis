@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News Details</title>
+    <link href="/static/font.css" rel="stylesheet" type="text/css"/>
+    <style> 
+        body.news-page {
+         background-color: #dae4f0;    
+        }
+        .news-content {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .summary-content {
+            display: none;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            background-color: #e6ffe6;
+        }
+
+        .summary-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .summary-button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+
+<body class ="news-page">
+    <h2>Full News</h2>
+    <div class="news-content">
+        {{ article }}
+    </div>
+
+    <button class="summary-button" onclick="showSummary()">Show Summary</button>
+
+    <div class="summary-content" id="summarySection">
+    </div>
+
+    <script>
+        function showSummary() {
+            // Fetching the summary content using AJAX
+            fetch("/summarize", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "article_text": document.querySelector(".news-content").textContent.trim()
+                })
+            }).then(response => response.json()).then(data => {
+                document.getElementById("summarySection").innerText = data.summary;
+                document.getElementById("summarySection").style.display = "block";
+            });
+        }
+    </script>
+</body>
+</html>

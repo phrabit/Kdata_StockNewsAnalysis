@@ -1,0 +1,55 @@
+<html>
+ <head>
+  <link href="/static/styles.css" rel="stylesheet" type="text/css"/>
+ </head>
+{% include 'index.html'%}
+{% block content %}
+ <body>
+  <br/>
+  <form action="/result " method="post" name="info">
+   <div style="text-align:center; ">
+    <br/>
+    <div style="text-align:center; ">
+     <div style="text-align:center; ">
+      <div class="fade-in-box" style="word-break:break-all;text-align:center">
+       <label maxlength="8 " style="color:rgb(80, 80, 80); font-size:25px; ">
+        궁금하신 뉴스기사 본문을 넣어주세요
+       </label>
+       <br/>
+       <br/>
+       <select aria-label=".form-select-sm example" class="form-select form-select-lg mb-3" name="time">
+        <option selected="">
+         뉴스 시간대를 골라주세요
+        </option>
+        <option value="1">
+         평일 18시 이전
+        </option>
+        <option value="2">
+         평일 18시 이후
+        </option>
+        <option value="3">
+         휴일 전날 18시 이후
+        </option>
+        <option value="4">
+         휴일
+        </option>
+       </select>
+       <br/>
+       <br/>
+       <textarea name="text" placeholder="여기에 입력 " style="color:rgb(100, 100, 100); width:800px; height:400px; outline:none; text-align:left;font-size:13px" type="text "></textarea>
+      </div>
+     </div>
+    </div>
+    <br/>
+    <div class="fade-in-box">
+     <a href="/result">
+      <button class="custom-btn btn-11" id="send " type="submit ">
+       보내기
+      </button>
+     </a>
+    </div>
+   </div>
+  </form>
+ </body>
+</html>
+{% endblock %}
