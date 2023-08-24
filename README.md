@@ -91,6 +91,11 @@
 ![GIFMaker_me](https://github.com/phrabit/Kdata_StockNewsAnalysis/assets/70180003/7d0774d5-c29f-4ae2-aa5d-a90c63350dc6)
 
 
-
+---
+![GIFMaker_me (2)](https://github.com/phrabit/Kdata_StockNewsAnalysis/assets/70180003/9c19ce43-392b-4100-8126-7df03b1ae7b1)
 
 ---
+![GIFMaker_me (4)](https://github.com/phrabit/Kdata_StockNewsAnalysis/assets/70180003/91e04478-0444-4dcf-9854-95d97a080567)
+
+
+
